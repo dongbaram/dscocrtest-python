@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os, json
 from flask import Flask, request, redirect, url_for
 from werkzeug import secure_filename
