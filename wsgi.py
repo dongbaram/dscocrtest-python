@@ -5,4 +5,4 @@ from werkzeug import secure_filename
 app = Flask(__name__)
 
 if __name__ == "__main__":
-    application.run()
+    app.run()
