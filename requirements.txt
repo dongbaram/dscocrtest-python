@@ -1,5 +1,2 @@
-gunicorn
-Flask
-request
-redirect
-url_for
+gunicorn==19.9.0
+Flask==10.02
