@@ -39,5 +39,18 @@ def upload_file():
         return 'uploaded'
     return 'error'
 
+
+#ocr 처리
+@application.route('/runocr', methods=['POST'])
+def runocr():
+    from runocr_tmp2 import main
+
+    jsontmp = request.get_json(silent=True, cache=False, force=True)
+    print(jsontmp["filename"])  #파일명
+    main(jsontmp)
+    
+    return jsontmp["filename"]
+
+
 if __name__ == "__main__":
     application.run()
