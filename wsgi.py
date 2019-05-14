@@ -43,13 +43,15 @@ def upload_file():
 #ocr 처리
 @application.route('/runocr', methods=['POST'])
 def runocr():
-    from runocr_tmp2 import main
+    from runocr_tmp2 import main    #호출할 파이썬 파일 ( 동일경로에 있어야 함 )
 
-    jsontmp = request.get_json(silent=True, cache=False, force=True)
+    jsontmp = request.get_json(silent=True, cache=False, force=True)    #json type으로 파라미터를 받음
+
     print(jsontmp["filename"])  #파일명
-    main(jsontmp)
-    
-    return jsontmp["filename"]
+    main_return = main(jsontmp) #파이썬 호출시 파라미터는 dict type으로 전송
+    return_data = main_return["key1"] + "/" + main_return["key2"]
+    print(return_data)
+    return return_data
 
 
 if __name__ == "__main__":
