@@ -21,6 +21,7 @@ def hello():
 def upload_file(): 
     #업로드 경로가 존재하는지 확인 - 없으면 생성함
     if not os.path.isdir(application.config['UPLOAD_FOLDER']):
+        print('경로 생성')
         os.mkdir(application.config['UPLOAD_FOLDER'])
 
     file = request.files['ocrfile']
