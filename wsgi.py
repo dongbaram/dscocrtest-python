@@ -1,51 +1,9 @@
-import os, json
-from flask import Flask, request, redirect, url_for
-from werkzeug import secure_filename
+from flask import Flask
+application = Flask(__name__)
 
-UPLOAD_FOLDER = './uploads'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
-
-@app.route("/")
+@application.route("/")
 def hello():
     return "Hello World!"
 
-@app.route('/fileUpload', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        file = request.files['ocrfile']
-
-        #jsontmp = request.get_json(silent=True, cache=False, force=True)
-        #print(request)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            #return redirect(url_for('uploaded_file', filename=filename))
-            print('test debug')
-            return 'uploaded'
-    return 'error'
-
-@app.route('/fileUpload2', methods=['POST'])
-def upload_file2():
-    jsontmp = request.get_json(silent=True, cache=False, force=True)
-    print(jsontmp)
-    #file = request.files['file']
-    #if file and allowed_file(file.filename):
-    #    filename = secure_filename(file.filename)
-    #    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    #    return redirect(url_for('uploaded_file',
-    #                            filename=filename))
-    return 'aaaaa' # 'upload ok'
-
-if __name__ == '__main__':
-    #서버 실행
-#   app.run(debug = True)
-   app.run()
+if __name__ == "__main__":
+    application.run()
