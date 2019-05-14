@@ -1,2 +1,2 @@
 gunicorn==19.9.0
-Flask==10.02
+Flask==10.0.2
