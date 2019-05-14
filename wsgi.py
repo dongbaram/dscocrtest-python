@@ -1,8 +1,9 @@
-import os, json
-from flask import Flask, request, redirect, url_for
-from werkzeug import secure_filename
+from flask import Flask
+appl = Flask(__name__)
 
-app = Flask(__name__)
+@app.route("/")
+def hello():
+    return "Hello World!"
 
 if __name__ == "__main__":
     app.run()
