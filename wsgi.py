@@ -8,10 +8,13 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
 @application.route("/")
 def hello():
     return "OpenShift Hello World!"
-
 
 @application.route('/fileUpload', methods=['POST'])
 def upload_file(): 
