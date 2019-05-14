@@ -2,5 +2,3 @@ gunicorn==19.9.0
 Flask==1.0.2
 werkzeug==0.15.2
 PyMuPDF==1.14.13
-pip==9.0.1
-requests==2.21.0
