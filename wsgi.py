@@ -1,7 +1,8 @@
-from flask import Flask
-application = Flask(__name__)
+import os, json
+from flask import Flask, request, redirect, url_for
+from werkzeug import secure_filename
 
-@application.route("/")
+@app.route("/")
 def hello():
     return "Hello World!"
 
