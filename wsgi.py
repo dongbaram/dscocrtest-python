@@ -44,7 +44,7 @@ def upload_file():
         os.mkdir(application.config['UPLOAD_FOLDER'])
 
     file = request.files['ocrfile']
-    print(file.filename) 
+    #print(file.filename) 
 
     #jsontmp = request.get_json(silent=True, cache=False, force=True)
     #print(request)
@@ -112,7 +112,7 @@ def koreancheck():
     hangul = secure_filename(hangul)
     print('---5----------------------')
     print(hangul)
-    print("한글")
+    #print("한글")
     print(u"한글")
     print('---6----------------------')
 
