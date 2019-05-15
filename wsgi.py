@@ -106,7 +106,7 @@ def koreancheck():
     jsontmp = request.get_json(silent=True, cache=False, force=True)    #json type으로 파라미터를 받음
     print('---2----------------------')
     hangul = jsontmp["key1"] #서버에 올려놓은 파일명
-    print(hangul)
+    #print(hangul)
     print(hangul.encode("utf-8"))
     print('---3----------------------') 
     hangul = secure_filename(hangul)
