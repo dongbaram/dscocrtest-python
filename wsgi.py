@@ -22,6 +22,7 @@ def hello():
 def upload_file(): 
     #업로드 경로가 존재하는지 확인 - 없으면 생성함
  
+    print('한들테스트')
     if not os.path.isdir(application.config['UPLOAD_FOLDER']):
         print('create folder')
         os.mkdir(application.config['UPLOAD_FOLDER'])
