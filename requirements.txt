@@ -1,6 +1,6 @@
 gunicorn==19.9.0
 Flask==1.0.2
 werkzeug==0.15.2
-#PyMuPDF==1.14.2
+PyMuPDF==1.14.2
 google-cloud
-#google-cloud-vision
+google-cloud-vision
